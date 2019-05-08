@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "errorcode": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

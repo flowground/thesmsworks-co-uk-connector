@@ -1,0 +1,9 @@
+{
+    "type": "object",
+    "properties": {
+        "batchid": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

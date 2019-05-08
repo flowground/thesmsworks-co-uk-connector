@@ -1,0 +1,549 @@
+{
+    "title": "The SMS Works",
+    "description": "The SMS Works provides a low-cost, reliable SMS API for developers. Pay only for delivered texts, all failed messages are refunded.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/thesmsworks.co.uk/1.2.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.thesmsworks.co.uk/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "JWT": {
+                "label": "Authorization (JWT)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "keySecret": {
+            "main": "./lib/actions/keySecret.js",
+            "title": "Generates an API Key/Secret pair",
+            "description": "Generates an API Key/Secret pair",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/keySecret.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_auth_getApiKey": {
+            "main": "./lib/actions/x_swagger_router_controller_auth_getApiKey.js",
+            "title": "x_swagger_router_controller_auth_getApiKey",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_auth_getApiKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "login": {
+            "main": "./lib/actions/login.js",
+            "title": "Generates a Json Web Token",
+            "description": "Generates a Json Web Token",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/login.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_auth_token": {
+            "main": "./lib/actions/x_swagger_router_controller_auth_token.js",
+            "title": "x_swagger_router_controller_auth_token",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_auth_token.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "scheduleBatch": {
+            "main": "./lib/actions/scheduleBatch.js",
+            "title": "Schedules a batch of SMS messages to be sent at the date time you specify",
+            "description": "Schedules a batch of SMS messages to be sent at the date time you specify",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/scheduleBatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_batch_schedule": {
+            "main": "./lib/actions/x_swagger_router_controller_batch_schedule.js",
+            "title": "x_swagger_router_controller_batch_schedule",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_batch_schedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "sendBatch": {
+            "main": "./lib/actions/sendBatch.js",
+            "title": "Send a single SMS message to multiple recipients",
+            "description": "Send a single SMS message to multiple recipients",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/sendBatch.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_batch_send": {
+            "main": "./lib/actions/x_swagger_router_controller_batch_send.js",
+            "title": "x_swagger_router_controller_batch_send",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_batch_send.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getBatchById": {
+            "main": "./lib/actions/getBatchById.js",
+            "title": "Retrieve all messages in a batch with the given batch ID",
+            "description": "Retrieve all messages in a batch with the given batch ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getBatchById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_batch__batchid_": {
+            "main": "./lib/actions/x_swagger_router_controller_batch__batchid_.js",
+            "title": "x_swagger_router_controller_batch__batchid_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_batch__batchid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "cancelScheduledBatchJob": {
+            "main": "./lib/actions/cancelScheduledBatchJob.js",
+            "title": "Cancels a scheduled SMS message",
+            "description": "Cancels a scheduled SMS message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/cancelScheduledBatchJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_batches_schedule__batchid_": {
+            "main": "./lib/actions/x_swagger_router_controller_batches_schedule__batchid_.js",
+            "title": "x_swagger_router_controller_batches_schedule__batchid_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_batches_schedule__batchid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "credits": {
+            "main": "./lib/actions/credits.js",
+            "title": "Returns the number of credits currently available on the account",
+            "description": "Returns the number of credits currently available on the account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/credits.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_credits_balance": {
+            "main": "./lib/actions/x_swagger_router_controller_credits_balance.js",
+            "title": "x_swagger_router_controller_credits_balance",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_credits_balance.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "scheduleMessage": {
+            "main": "./lib/actions/scheduleMessage.js",
+            "title": "Schedules an SMS message to be sent at the date-time you specify",
+            "description": "Schedules an SMS message to be sent at the date-time you specify",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/scheduleMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_message_schedule": {
+            "main": "./lib/actions/x_swagger_router_controller_message_schedule.js",
+            "title": "x_swagger_router_controller_message_schedule",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_message_schedule.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "sendMessage": {
+            "main": "./lib/actions/sendMessage.js",
+            "title": "Sends an SMS message",
+            "description": "Sends an SMS message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/sendMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_message_send": {
+            "main": "./lib/actions/x_swagger_router_controller_message_send.js",
+            "title": "x_swagger_router_controller_message_send",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_message_send.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMessages": {
+            "main": "./lib/actions/getMessages.js",
+            "title": "Get messages matching your search criteria",
+            "description": "Get messages matching your search criteria",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMessages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_messages": {
+            "main": "./lib/actions/x_swagger_router_controller_messages.js",
+            "title": "x_swagger_router_controller_messages",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_messages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getInboxMessages": {
+            "main": "./lib/actions/getInboxMessages.js",
+            "title": "Get unread uncoming messages matching your search criteria",
+            "description": "Get unread uncoming messages matching your search criteria",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getInboxMessages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_messages_inbox": {
+            "main": "./lib/actions/x_swagger_router_controller_messages_inbox.js",
+            "title": "x_swagger_router_controller_messages_inbox",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_messages_inbox.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "cancelScheduledJob": {
+            "main": "./lib/actions/cancelScheduledJob.js",
+            "title": "Cancels a scheduled SMS message",
+            "description": "Cancels a scheduled SMS message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/cancelScheduledJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_messages_schedule__messageid_": {
+            "main": "./lib/actions/x_swagger_router_controller_messages_schedule__messageid_.js",
+            "title": "x_swagger_router_controller_messages_schedule__messageid_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_messages_schedule__messageid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getMessageById": {
+            "main": "./lib/actions/getMessageById.js",
+            "title": "Retrieve a logged message by the message ID",
+            "description": "Retrieve a logged message by the message ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getMessageById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_messages__messageid_": {
+            "main": "./lib/actions/x_swagger_router_controller_messages__messageid_.js",
+            "title": "x_swagger_router_controller_messages__messageid_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_messages__messageid_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_pipe_swagger": {
+            "main": "./lib/actions/x_swagger_pipe_swagger.js",
+            "title": "x_swagger_pipe_swagger",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_pipe_swagger.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getError": {
+            "main": "./lib/actions/getError.js",
+            "title": "Returns a sample error object for the given error code. Useful for designing code to react to errors when they occur for real.",
+            "description": "Returns a sample error object for the given error code. Useful for designing code to react to errors when they occur for real.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getError.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_utils_errors__errorcode_": {
+            "main": "./lib/actions/x_swagger_router_controller_utils_errors__errorcode_.js",
+            "title": "x_swagger_router_controller_utils_errors__errorcode_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_utils_errors__errorcode_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "test": {
+            "main": "./lib/actions/test.js",
+            "title": "Returns the customer ID to the caller",
+            "description": "Returns the customer ID to the caller",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/test.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "x_swagger_router_controller_utils_test": {
+            "main": "./lib/actions/x_swagger_router_controller_utils_test.js",
+            "title": "x_swagger_router_controller_utils_test",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/x_swagger_router_controller_utils_test.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "authorisation object",
+            "properties": {
+                "customerid": {
+                    "description": "Your customer ID, available from your account area at https://thesmsworks.co.uk/user/login",
+                    "type": "string"
+                },
+                "key": {
+                    "description": "API Key",
+                    "type": "string"
+                },
+                "secret": {
+                    "description": "API Secret",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

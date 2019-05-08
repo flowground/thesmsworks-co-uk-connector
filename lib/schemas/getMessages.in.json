@@ -1,0 +1,76 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "description": "search parameters for querying the message database",
+            "properties": {
+                "destination": {
+                    "description": "The phone number of the recipient. Start UK numbers with 44 and drop the leading 0.",
+                    "example": "447777777777",
+                    "type": "string"
+                },
+                "from": {
+                    "description": "The date-time from which you would like matching messages",
+                    "example": "Wed Jul 12 2017 20:26:28 GMT+0100 (BST)",
+                    "type": "string"
+                },
+                "keyword": {
+                    "description": "The keyword used in the inbound message",
+                    "example": "SKYWALKER",
+                    "type": "string"
+                },
+                "metadata": {
+                    "description": "An array of objects containing metadata key/value pairs that have been saved on messages.",
+                    "example": [
+                        {
+                            "key": "myKey1",
+                            "value": "myValue1"
+                        },
+                        {
+                            "key": "myKey2",
+                            "value": "myValue2"
+                        }
+                    ],
+                    "items": {
+                        "type": "object"
+                    },
+                    "properties": {
+                        "schema": {
+                            "description": "Key/value pair that will be returned to you in the API call response.",
+                            "properties": {
+                                "key": {
+                                    "description": "key of the key/value pair",
+                                    "example": "myKey",
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "description": "value of the key/value pair",
+                                    "example": "myValue",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "array"
+                },
+                "sender": {
+                    "description": "The sender of the message (this can be the configured sender name for an outbound message or the senders phone number for an inbound message).",
+                    "example": "YourCompany",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "The status of the messages you would like returned (either 'SENT', 'DELIVERED', 'EXPIRED', 'DELETED', 'UNDELIVERABLE', 'ACCEPTED', 'UNKNOWN', 'REJECTED')",
+                    "example": "SENT",
+                    "type": "string"
+                },
+                "to": {
+                    "description": "The date-time to which you would like matching messages",
+                    "example": "Wed Jul 19 2017 20:26:28 GMT+0100 (BST)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
